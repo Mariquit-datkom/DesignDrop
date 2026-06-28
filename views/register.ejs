@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/htmlHead', {title: 'Register Account'}) %>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+    <div class="register-parent-container">
+        <div class="register-form-container">
+            <div class="form-header-container">
+                <span class="form-header">Register</span>
+            </div>
+            
+            <div class="error-msg-container">
+                <% if (error.length > 0) {%>
+                    <span class="error-msg"><%= error[0] %></span>
+                <% } %>
+            </div>
+
+            <form action="/register" method="post" class="register-form">
+                <input type="text" name="name" id="name" placeholder="Name" class="form-input" autocomplete="off">
+                <input type="text" name="email" id="email" placeholder="Email" class="form-input" autocomplete="off">
+                <input type="text" name="password" id="password" placeholder="Password" class="form-input" autocomplete="off">
+                <button type="submit" class="register-btn">Register Account</button>
+            </form>
+            
+            <div class="login-redirect">
+                <span>Already have an account?: <a href="/login" class="login-redirect-link">Login</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
