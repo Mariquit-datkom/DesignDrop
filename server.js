@@ -3,6 +3,7 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const path = require('path');
 const flash = require('connect-flash');
+const favicon = require('serve-favicon');
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+//app.use(favicon(path.join(__dirname, 'public', 'assets', 'icon', 'icon_16.ico')));
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
