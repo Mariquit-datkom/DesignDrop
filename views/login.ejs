@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/htmlHead', {title: 'Login'}) %>
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/login.css?v=1">
 </head>
 <body>
     <div class="login-parent-container">
@@ -20,8 +20,8 @@
             </div>
 
             <form action="/login" method="post" class="login-form">
-                <input type="text" name="email" id="email" placeholder="Email" class="form-input" autocomplete="off">
-                <input type="password" name="password" id="password" placeholder="Password" class="form-input" autocomplete="off">
+                <input type="text" name="email" id="email" placeholder="Email" class="form-input" autocomplete="off" required>
+                <input type="password" name="password" id="password" placeholder="Password" class="form-input" autocomplete="off" required>
                 <button type="submit" class="login-btn">Login</button>
             </form>
 
