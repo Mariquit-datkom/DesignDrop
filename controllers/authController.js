@@ -9,6 +9,14 @@ async function register (req, res) {
     const {name, email, password, role} = req.body;
 
     try {
+        if (!name || !email || !password) {
+            req.flash('error', 'All fields required.');
+            return res.redirect('/register');
+        } else if (role !== "buyer" || role !== "seller" || role !== "admin") {
+            req.flash('error', 'Select a valid account role.');
+            return res.redirect('/register');
+        }
+
         const existingUser = await userModel.findUserByEmail(email);
         if (existingUser) {
             req.flash('error', 'Email already registered.')
@@ -37,6 +45,11 @@ async function login (req, res) {
     const {email, password} = req.body;
 
     try {
+        if (!email || !password) {
+            req.flash('error', 'All fields required.');
+            return res.redirect('/login');
+        }
+
         const user = await userModel.findUserByEmail(email);
         if (!user) {
             req.flash('error', 'No user found with this email.');
