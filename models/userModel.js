@@ -1,9 +1,9 @@
 const db = require('../config/db');
 
-async function createUser(name, email, hashedPassword) {
+async function createUser(name, email, hashedPassword, role) {
     const [result] = await db.query (
-        'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
-        [name, email, hashedPassword]
+        'INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)',
+        [name, email, hashedPassword, role]
     );
 
     return result.insertId;
