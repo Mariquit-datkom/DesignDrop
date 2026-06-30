@@ -24,7 +24,9 @@ const sessionStore = new MySQLStore({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  database: process.env.DB_NAME,
+  checkExpirationInterval: 1000 * 60 * 30,
+  expiration: 3600000
 });
 
 app.use(session({
@@ -33,7 +35,12 @@ app.use(session({
   store: sessionStore,
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 1000 * 60 * 60 }
+  rolling: true,
+  cookie: { 
+    maxAge: 1000 * 60 * 60,
+    httpOnly: true,
+    secure: false 
+}
 }));
 
 app.use(flash());

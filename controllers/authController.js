@@ -99,8 +99,11 @@ async function login (req, res) {
     }
 }
 
-function logout (req, res) {
-    req.session.destroy(() => {
+function logout(req, res) {
+    req.session.destroy(err => {
+        if (err) return res.redirect('/dashboard');
+        
+        res.clearCookie('designdrop_session');
         res.redirect('/login');
     });
 }
