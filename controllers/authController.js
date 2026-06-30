@@ -9,25 +9,43 @@ async function register (req, res) {
     const {name, email, password, role} = req.body;
 
     try {
-        if (!name || !email || !password) {
-            req.flash('error', 'All fields required.');
+        if (!name?.trim() || !email?.trim() || !password?.trim()) {
+            req.flash('error', 'All fields are required.');
             return res.redirect('/register');
-        } else if (role !== "buyer" || role !== "seller" || role !== "admin") {
+        }
+
+        const cleanName = name.trim();
+        const cleanEmail = email.trim().toLowerCase();
+        const cleanPassword = password.trim();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (!emailRegex.test(cleanEmail)) {
+            req.flash('error', 'Please enter a valid email address.');
+            return res.redirect('/register');
+        }
+        
+        const allowedRoles = ['buyer', 'seller'];
+        if (!allowedRoles.includes(role)) {
             req.flash('error', 'Select a valid account role.');
             return res.redirect('/register');
         }
 
-        const existingUser = await userModel.findUserByEmail(email);
+        if (cleanPassword.length < 8) {
+            req.flash('error', 'Password must be at least 8 characters long.');
+            return res.redirect('/register');
+        }
+
+        const existingUser = await userModel.findUserByEmail(cleanEmail);
         if (existingUser) {
             req.flash('error', 'Email already registered.')
             return res.redirect('/register')
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(cleanPassword, 10);
 
-        await userModel.createUser(name, email, hashedPassword);
+        await userModel.createUser(cleanName, cleanEmail, hashedPassword, role);
 
-        req.flash('success', 'Account successfuly created.')
+        req.flash('success', 'Account successfully created.')
         res.redirect('/login');
 
     } catch (err) {
@@ -45,21 +63,23 @@ async function login (req, res) {
     const {email, password} = req.body;
 
     try {
-        if (!email || !password) {
+        if (!email?.trim() || !password?.trim()) {
             req.flash('error', 'All fields required.');
             return res.redirect('/login');
         }
 
-        const user = await userModel.findUserByEmail(email);
+        const cleanEmail = email.trim().toLowerCase();
+
+        const user = await userModel.findUserByEmail(cleanEmail);
         if (!user) {
             req.flash('error', 'No user found with this email.');
-            return res.redirect('login');
+            return res.redirect('/login');
         }
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password.trim(), user.password);
         if (!isMatch) {
             req.flash('error', 'Invalid Credentials.');
-            return res.redirect('login');
+            return res.redirect('/login');
         }
 
         req.session.user = {
