@@ -1,3 +1,8 @@
 body {
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 20px;
 }

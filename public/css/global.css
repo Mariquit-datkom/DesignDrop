@@ -12,11 +12,90 @@ body {
     display: flex;
     background-color: var(--primary-bg);
     color: var(--text-main);
-    padding: 25px 40px;
 }
 
 .navbar {
-    width: 100%;
-    height: 60px;
-    background-color: var(--text-main);
+    width: 180px;
+    height: 100%;
+    background-color: var(--card-bg);
+    border-right: 3px var(--card-border-color) solid;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.user-avatar img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.nav-item-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;    
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 8px 0;
+    padding-left: 3px;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.nav-item.active {
+    background-color: var(--hover);
+}
+
+.nav-item i {
+    font-size: 18px;
+}
+
+.logout-container {
+    margin-top: auto;
+}
+
+.logout-link {
+    display: flex;
+    text-decoration: none;
+    color: var(--error);
+    padding: 8px 0;
+    padding-left: 3px;
+    border-radius: 6px;
+    gap: 5px;
+}
+
+.logout-link:hover {
+    background-color: rgba(239, 68, 68,0.15);
 }

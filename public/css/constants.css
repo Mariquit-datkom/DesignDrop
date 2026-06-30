@@ -1,12 +1,17 @@
 :root {
-    --primary-bg: #0F0F14;
-    --text-main: #F5F5F7;
+  --debug-border: 1px red solid !important;
 
-    --success: #22C55E;
-    --warning: #F59E0B;
-    --error: #EF4444;
+  --primary-bg: #0F0F14;
+  --text-main: #F5F5F7;
 
-    --hover: #9F7AEA;
+  --card-bg: #1F1F2E;
+  --card-border-color: #2A2A3D;
+
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --error: #ef4444;
+
+  --hover: #9F7AEA;
 }
 
 @font-face {
