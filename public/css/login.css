@@ -51,6 +51,11 @@ body {
     font-size: 13px;
 }
 
+.success-msg {
+    color: var(--success);
+    font-size: 13px;
+}
+
 .login-form {
     width: 100%;
     display: flex;
