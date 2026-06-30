@@ -88,7 +88,9 @@ async function login (req, res) {
             role: user.role
         };
 
-        res.redirect('/dashboard');
+        if (user.role === 'seller') return res.redirect('/seller/dashboard');
+
+        res.redirect('/buyer/dashboard');
 
     } catch (err) {
         console.error(err);
