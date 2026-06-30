@@ -1,0 +1,33 @@
+<div class="navbar">
+    <div class="user-container">
+        <div class="user-avatar">
+            <img src="/assets/images/pfp_temp.webp" alt="user-profile">
+        </div>
+        <div class="username">
+            <%= user?.name %>
+        </div>
+    </div>
+
+    <%
+    const navItems = [
+        { label: 'Dashboard', href: '/seller/dashboard', icon: 'fas fa-grid-2' },
+        { label: 'Products',  href: '/seller/products',  icon: 'fas fa-store' },
+        { label: 'Orders',    href: '/seller/orders',    icon: 'fas fa-box-isometric-tape' },
+        { label: 'Analytics', href: '/seller/analytics', icon: 'fas fa-chart-simple' }
+    ];
+    %>
+
+    <div class="nav-item-container">
+        <% navItems.forEach(item => { %>
+            <a href="<%= item.href %>"
+            class="nav-item <%= currentPath === item.href ? 'active' : '' %>">
+                <i class="<%= item.icon %>"></i>
+                <span><%= item.label %></span>
+            </a>
+        <% }) %>
+    </div>
+
+    <div class="logout-container">
+        <a href="/logout" class="logout-link"><i class="fas fa-sign-out"></i>Logout</a>
+    </div>
+</div>
