@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {requireSeller} = require('../middleware/roleMiddleware');
 
-const pages = ['dashboard', 'products', 'orders', 'analytics'];
+const pages = ['dashboard', 'products', 'orders', 'analytics', 'settings'];
 
 pages.forEach(page => {
     router.get(`/seller/${page}`, requireSeller, (req, res) => {
