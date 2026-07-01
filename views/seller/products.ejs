@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <%- include('../partials/htmlHead', {title: 'Products'}) %>
-    <link rel="stylesheet" href="/css/sellerDashboard.css?v=1">
+    <link rel="stylesheet" href="/css/seller.css?v=1">
 </head>
 <body>
     <%- include('navbar', { user: user, currentPath: currentPath }) %>
 
-    <div class="dashboard-content"></div>
+    <div class="content-container">
+        <div class="products-header-container">
+            <span class="products-header">My Products</span>
+            <a href="/seller/products/new" class="add-new-product">+ Add Product</a>
+        </div>
+        <div class="products-container">
+            
+        </div>
+    </div>
 </body>
 </html>
