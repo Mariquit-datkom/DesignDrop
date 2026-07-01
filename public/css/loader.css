@@ -1,0 +1,35 @@
+.loader-container {
+    position: fixed;
+    background-color: var(--primary-bg);
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 100px;
+    display: flex;
+    gap: 5px;
+}
+
+.word {
+    font-size: 25px;
+    color: var(--text-main);
+    animation: bounce 2.1s ease-in-out infinite;
+    animation-delay: calc(var(--delay-step, 0.3s) * var(--index));
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-15px);
+    }
+}
