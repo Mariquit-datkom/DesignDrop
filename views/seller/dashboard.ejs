@@ -4,7 +4,8 @@
     <%- include('../partials/htmlHead', {title: 'Seller Dashboard'}) %>
     <link rel="stylesheet" href="/css/sellerDashboard.css?v=1">
 </head>
-<body>
+<body>    
+    <%- include('../partials/loader') %>
     <%- include('navbar', { user: user, currentPath: currentPath }) %>
 
     <div class="dashboard-content"></div>

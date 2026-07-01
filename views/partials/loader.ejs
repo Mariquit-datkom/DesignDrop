@@ -1,0 +1,13 @@
+<%
+const text = "Loading..";
+%>
+
+<div class="loader-container" id="loader">
+    <div class="loader">
+        <% text.split('').forEach(char => { %>
+            <div class="word"><%- char === ' ' ? '&nbsp;' : char %></div>
+        <% }) %>
+    </div>
+</div>
+
+<script src="/js/loader.js"></script>
