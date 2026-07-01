@@ -1,5 +1,5 @@
 :root {
-  --debug-border: 1px red solid !important;
+  --debug: 1px red solid !important;
 
   --primary-bg: #0F0F14;
   --text-main: #F5F5F7;
@@ -11,7 +11,8 @@
   --warning: #F59E0B;
   --error: #ef4444;
 
-  --hover: #9F7AEA;
+  --accent: #9F7AEA;
+  --hover: #5e3d9b;
 }
 
 @font-face {

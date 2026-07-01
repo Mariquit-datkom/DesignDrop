@@ -96,7 +96,7 @@ body {
 }
 
 .register-btn:hover {
-    background-color: var(--hover);
+    background-color: var(--accent);
     color: var(--text-main);
 }
 
@@ -116,6 +116,6 @@ body {
 }
 
 .login-redirect-link:hover {
-    color: var(--hover);
-    text-decoration-color: var(--hover);
+    color: var(--accent);
+    text-decoration-color: var(--accent);
 }

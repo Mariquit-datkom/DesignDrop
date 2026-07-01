@@ -91,7 +91,7 @@ body {
 }
 
 .form-input:focus {
-    border-color: var(--hover);
+    border-color: var(--accent);
 }
 
 .login-btn {
@@ -105,7 +105,7 @@ body {
 }
 
 .login-btn:hover {
-    background-color: var(--hover);
+    background-color: var(--accent);
     color: var(--text-main);
 }
 
@@ -124,6 +124,6 @@ body {
 }
 
 .register-redirect-link:hover {
-    color: var(--hover);
-    text-decoration-color: var(--hover);
+    color: var(--accent);
+    text-decoration-color: var(--accent);
 }
