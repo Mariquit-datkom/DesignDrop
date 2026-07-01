@@ -1,0 +1,123 @@
+body {
+    flex-direction: row;
+}
+
+.navbar {
+    width: 180px;
+    height: 100%;
+    background-color: var(--card-bg);
+    border-right: 3px var(--card-border-color) solid;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.user-avatar img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.nav-item-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;    
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 8px 0;
+    padding-left: 3px;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.nav-item.active {
+    background-color: var(--accent);
+}
+
+.nav-item i {
+    font-size: 18px;
+}
+
+.logout-container {
+    margin-top: auto;
+}
+
+.logout-link {
+    display: flex;
+    text-decoration: none;
+    color: var(--error);
+    padding: 8px 0;
+    padding-left: 3px;
+    border-radius: 6px;
+    gap: 5px;
+}
+
+.logout-link:hover {
+    background-color: rgba(239, 68, 68,0.15);
+}
+
+.content-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.products-header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.products-header {
+    font-size: 35px;
+    font-weight: 600;
+    cursor: default;
+}
+
+.add-new-product {
+    background-color: var(--accent);
+    width: 110px;
+    padding: 4px 0;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.add-new-product:hover {
+    background-color: var(--hover);    
+}
